@@ -1,5 +1,5 @@
 :root {
-  --col1: rgb(255, 255, 255);
+  --col1: rgb(250, 250, 250);
   --col2: rgb(240, 240, 240);
   --col3: rgb(200, 200, 200);
   --shad-light: 0 0 5px 0 var(--shad-col);
@@ -26,7 +26,7 @@ html {
 }
 input,
 textArea,
-button {
+button, select {
   outline: none;
   font-family: var(--font);
   color: var(--colt);
@@ -84,6 +84,37 @@ footer > span {
   background: var(--col3);
 }
 
+#date-button-b{
+  background:rgb(245,245,245);
+  box-shadow:  -1px -1px 5px 0 white,  3px 3px 5px 0 rgba(0,0,0,0.05), inset -4px -4px 5px 0 white, inset 2px 2px 5px 0 rgba(0,0,0,0.1);
+  padding:5px;
+  width:30px;
+  border-radius:50%;
+  text-align:center;
+  vertical-align:center;
+  display:table-cell;
+  color:rgb(150,150,150);
+}
+#date-button-f{
+  background:rgb(245,245,245);
+  box-shadow: -1px -1px 5px 0 white,  3px 3px 5px 0 rgba(0,0,0,0.05), inset -4px -4px 5px 0 white, inset 2px 2px 5px 0 rgba(0,0,0,0.1);
+  border-radius:50%;
+  padding:5px;
+  width:30px;
+  text-align:center;
+  vertical-align:center;
+  color:rgb(150,150,150);
+}
+#date-button-b:hover, #date-button-f:hover{
+  cursor:pointer;
+}
+#book-form{
+  max-width: 600px;
+  margin:auto;
+  background: rgba(255,255,255,0.85);
+  padding-top:20px;
+  padding-bottom:20px;
+}
 #dark-left {
   position: relative;
   margin: 5%;
@@ -91,7 +122,6 @@ footer > span {
   height: 40%;
   color: var(--col1);
   background: rgba(0, 0, 0, 0.5);
-  color: var(--col1);
 }
 #dark-right {
   position: relative;
@@ -100,7 +130,6 @@ footer > span {
   height: 40%;
   color: var(--col1);
   background: rgba(0, 0, 0, 0.5);
-  color: var(--col1);
 }
 #dark-left > a,
 #dark-right > a {
@@ -303,6 +332,136 @@ footer > span {
   -ms-transform: translatey(-50%);
 }
 
+.rad {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.rad > input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.c-r {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: rgb(245,245,245);
+  box-shadow: inset -4px -4px 5px 0 white, inset 2px 2px 5px 0 rgba(0,0,0,0.1);
+  border-radius: 50%;
+}
+.rad:hover > input ~ .c-r {
+  background-color: rgb(240,240,240);
+}
+.rad > input:checked ~ .c-r {
+  box-shadow: -4px -4px 5px 0 white, 3px 3px 5px 0 rgba(0,0,0,0.1);
+}
+.c-r:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.rad > input:checked ~ .c-r:after {
+  display: block;
+}
+.rad > .c-r:after {
+ 	top: 8px;
+	left: 8px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: var(--colm);
+  box-shadow: inset 1px 1px rgba(0,0,0,0.25);
+}
+.week{
+  background:rgb(250,250,250);
+  padding:20px;
+  border-spacing:10px;
+  margin:auto;
+}
+.day, .ti{
+  font-size:12px;
+  text-align:center;
+  margin:10px;
+  padding:5px;
+}
+.day{
+  background: rgb(250,250,250);
+  box-shadow: -4px -4px 5px 0 white, 3px 3px 5px 0 rgba(0,0,0,0.05);
+  border-radius:5px;
+  margin-bottom:5px;
+}
+.ti{
+  background: rgb(250,250,250);
+  box-shadow:  -4px -4px 5px 0 white,  3px 3px 5px 0 rgba(0,0,0,0.05);
+  border-radius:5px;
+}
+.ti-selected{
+  box-shadow:  inset -4px -4px 5px 0 rgb(255,255,255),  inset 3px 3px 5px 0 rgba(0,0,0,0.075);
+}
+.ti-disabled{
+  box-shadow:  inset -4px -4px 5px 0 rgb(255,255,255,0.5),  inset 3px 3px 5px 0 rgba(0,0,0,0.25);
+  background: rgba(255,200,200);
+}
+.ti:hover{
+  cursor:pointer;
+}
+.ti-disabled:hover{
+  cursor:not-allowed;
+}
+.nw{
+  background:transparent;
+}
+
+
+.hf > input{
+  width:40% !important;
+}
+.form-control > input:first-of-type, .form-control > select{
+  margin-left:10%;
+}
+.form-control > input, .form-control > select{
+  border:none;
+  width:80%;
+  padding:10px;
+  background:rgb(245,245,245);
+  box-shadow: inset -4px -4px 5px 0 white, inset 2px 2px 5px 0 rgba(0,0,0,0.1);
+  border-radius:5px;
+  font-size:15px;
+}
+.form-label{
+  margin-left:10%;
+  font-weight:bold;
+  
+}
+.radio-field{
+  margin-left: 10%;
+}
+.form-submit > input, .form-submit > div{
+  text-align:center;
+  margin-left:10%;
+  width:80%;
+  margin-top:20px;
+  border:none;
+  font-weight:bold;
+  padding:10px;
+  border-radius:5px;
+  background:rgb(245,245,245);
+  box-shadow: -4px -4px 5px 0 white, 4px 4px 5px 0 rgba(0,0,0,0.1);
+  margin-bottom:50px;
+}
+.form-submit:hover{
+  cursor:pointer;
+}
 .info-list {
   margin-left: 15%;
 }
@@ -331,6 +490,7 @@ footer > span {
 .bgimage5 {
   background-image: url(https://images.unsplash.com/photo-1610984749421-d8a4908b272b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=3000);
 }
+
 .parallax {
   width: 100%;
   min-height: 80%;
